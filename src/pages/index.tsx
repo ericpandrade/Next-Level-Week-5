@@ -1,16 +1,24 @@
+/* eslint-disable @next/next/no-img-element */
+// Genneration dinamic's pages with next
 import { GetStaticProps } from "next";
 
+// Link to go to another page with next
 import Link from "next/link";
 
+// Image tag that facilitates image rendering
 import Image from "next/image";
 
+// Pulling the api
 import { api } from "../services/api";
 
+// Data formatting
 import { format, parseISO } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 
+// Styles
 import styles from "./home.module.scss";
+import { usePlayerContext } from "../contexts/PlayerContext";
 
 type Episode = {
   id: string;
@@ -21,6 +29,7 @@ type Episode = {
   published_at: string;
   url: string;
   publishedAt: string;
+  duration: number;
   file: {
     duration: string;
     url: string;
@@ -33,6 +42,8 @@ type HomeProps = {
 };
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
+  const { play } = usePlayerContext();
+
   return (
     <div className={styles.homePage}>
       <section className={styles.latestEpisodes}>
@@ -60,7 +71,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <span>{episode.durationAsString}</span>
                 </div>
 
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                   <img src="/play-green.svg" alt="Tocar Episódio" />
                 </button>
               </li>
