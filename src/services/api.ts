@@ -1,5 +1,7 @@
 import Axios from "axios";
 
 export const api = Axios.create({
-  baseURL: "http://localhost:3333/",
+  baseURL:
+    "https://my-json-server.typicode.com/ericpandrade/Next-Level-Week-5" ||
+    "http://localhost:3333/",
 });
