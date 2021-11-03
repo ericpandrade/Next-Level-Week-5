@@ -15,7 +15,7 @@ Desenvolvimento de um Podcast, feito na Next Level Week 5 da RocketSeat
 
 <span style="font-family: 'Poppins', sans-serif;font-size:9pt">
 
-Você pode acompanhar o site pelo Link:
+Você pode acompanhar o site pelo Link: https://podcastr-ericpandrade.vercel.app/
 
 </span>
 
